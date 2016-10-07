@@ -157,7 +157,7 @@ _
         req_one    => [qw/size width/],
     },
     result => {
-        schema => ['any*', of=>['str', ['array*', of=>'str*']]],
+        schema => ['any', of=>['str', ['array*', of=>'str*']]],
     },
     result_naked => 1,
     examples => [
