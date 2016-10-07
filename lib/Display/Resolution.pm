@@ -156,6 +156,9 @@ _
         choose_all => [qw/width height/],
         req_one    => [qw/size width/],
     },
+    result => {
+        schema => ['any*', of=>['str', ['array*', of=>'str*']]],
+    },
     result_naked => 1,
     examples => [
         {
@@ -237,6 +240,10 @@ _
 #_
 #            cmdline_aliases => {a=>{}},
 #        },
+    },
+    result => {
+        #schema => ['any*', of=>['str', ['array*', of=>'str*']]],
+        schema => 'str',
     },
     result_naked => 1,
     examples => [
