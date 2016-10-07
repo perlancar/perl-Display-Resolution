@@ -149,6 +149,7 @@ _
 When set to true, an arrayref will be returned instead of string.
 
 _
+            cmdline_aliases => {a=>{}},
         },
     },
     args_rels => {
@@ -215,6 +216,14 @@ _
     args => {
         name => {
             schema => ['str*'],
+            completion => sub {
+                require Complete::Util;
+                my %args = @_;
+                Complete::Util::complete_hash_key(
+                    word => $args{word},
+                    hash => \%res_sizes,
+                );
+            },
             req => 1,
             pos => 0,
         },
@@ -226,6 +235,7 @@ _
 #When set to true, an arrayref will be returned instead of string.
 #
 #_
+#            cmdline_aliases => {a=>{}},
 #        },
     },
     result_naked => 1,
