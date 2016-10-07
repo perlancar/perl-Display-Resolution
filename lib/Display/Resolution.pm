@@ -275,6 +275,9 @@ sub get_display_resolution_size {
 
 $SPEC{list_display_resolution_names} = {
     v => 1.1,
+    result => {
+        schema => ['hash*', of=>'str*'],
+    },
     result_naked => 1,
     examples => [
         {args=>{}},
