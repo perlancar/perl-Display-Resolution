@@ -1,3 +1,10 @@
+0.003   2018-04-26 (PERLANCAR)
+
+	- Add new names: 2160p 4320p, 4K UHD-1, 8K UHD-2, CGA1, CGA2, DVGA, EGA,
+	  HGC, HSXGA, HUXGA, HXGA, MCGA, MDA, QSXGA+, QUXGA, UW10K, UW4K, UW5K,
+	  WHSXGA, WHUXGA, WHXGA, WQSXGA, WQUXGA, qSVGA.
+
+
 0.002   2016-10-07 (PERLANCAR)
 
         - Some Rinci metadata tweaks: CLI hints (completion for 'name', shortcut
