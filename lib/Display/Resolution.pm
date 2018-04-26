@@ -18,100 +18,119 @@ our %SPEC;
 
 our $size_re = qr/\A(\d+)\s*[x*]\s*(\d+)\z/;
 
+# sorted by horizontal pixel size, then vertical size, then name
 our %res_sizes = (
     'QQVGA'     => '160x120', # one fourth QVGA
     'qqVGA'     => '160x120',
 
     'HQVGA'     => '240x160', # half QVGA
 
+    'CGA1'      => '320x200',
     'QVGA'      => '320x240', # one quarter VGA
 
-    'WQVGA'     => '400x240',
+    'WQVGA'     => '400x240', # XXX there are actually variants of WQVGA, apple's ipod nano 7G's WQVGA is 432x240, etc.
+    'qSVGA'     => '400x300', # quarter SVGA
 
-    # XXX there are actually variants of HVGA, e.g. 480x270, 640x240, ...
-    'HVGA'      => '480x320', # half VGA
+    'HVGA'      => '480x320', # half VGA. XXX there are actually variants of HVGA, e.g. 480x270, 640x240, ...
 
-    'VGA'       => '640x480',
+    'CGA2'      => '640x200',
+    'EGA'       => '640x350',
+    'MCGA'      => '640x480',
     'SD'        => '640x480',
+    'VGA'       => '640x480',
 
+    'HGC'       => '720x348',
+    'MDA'       => '720x350',
     '480p'      => '720x480',
 
-    'WVGA'      => '768x480',
     'WGA'       => '768x480',
-
-    'FWVGA'     => '854x480',
-
+    'WVGA'      => '768x480',
     '576p'      => '720x576',
-
-    'qHD'       => '960x540', # one quarter of full HD
 
     'SVGA'      => '800x600',
     'UVGA'      => '800x600',
 
-    # XXX WSVGA also has resolution 1024x576
-    'WSVGA'     => '1024x600',
+    'FWVGA'     => '854x480',
 
     'DGA'       => '960x640', # double-size vga
+    'DVGA'      => '960x640', # double-size vga
+    'qHD'       => '960x540', # one quarter of full HD
 
-    'HD'        => '1280x720',
-    '720p'      => '1280x720',
-    'WXGA 16:9' => '1280x720',
-
+    'WSVGA'     => '1024x600', # XXX WSVGA also has resolution 1024x576
     'XGA'       => '1024x768',
 
-    'WXGA 5:3'  => '1280x768',
-
-    'WXGA 16:10'=> '1280x800',
+    '720p'      => '1280x720',
+    'HD'        => '1280x720',
+    'WXGA 16:9' => '1280x720',
+    'SXGA'      => '1280x1024',
 
     'XGA+'      => '1152x864',
+
+    'WXGA 5:3'  => '1280x768',
+    'WXGA 16:10'=> '1280x800',
 
     'WXGA+'     => '1440x900',
 
     'HD+'       => '1600x900',
-
-    'SXGA'      => '1280x1024',
-
-    'Full HD'   => '1920x1080',
-    'FHD'       => '1920x1080',
-    '1080p'     => '1920x1080',
-
-    'DCI 2K'    => '2048x1080',
-    'Cinema 2K' => '2048x1080',
-
     'UXGA'      => '1600x1200',
 
+    '1080p'     => '1920x1080',
+    'FHD'       => '1920x1080',
+    'Full HD'   => '1920x1080',
     'WUXGA'     => '1920x1200',
 
+    'Cinema 2K' => '2048x1080',
+    'DCI 2K'    => '2048x1080',
+
+    '1440p'     => '2560x1440',
     'QHD'       => '2560x1440', # four times HD
     'WQHD'      => '2560x1440',
-    '1440p'     => '2560x1440',
+    'WQXGA'     => '2560x1600',
+
+    'QSXGA+'    => '2800x2100',
 
     'UWQHD'     => '3440x1440',
 
-    'WQXGA'     => '2560x1600',
-
-    'WQXGA+'    => '3200x1800',
     'QHD+'      => '3200x1800',
+    'WQXGA+'    => '3200x1800',
+    'WQSXGA'    => '3200x2048',
+    'QUXGA'     => '3200x2400',
 
-    'UHD 4K'    => '3840x2160',
-    '4K UHD'    => '3840x2160',
-    'UHDTV-1'   => '3840x2160',
+    'UW4K'      => '3840x1600',
+    '2160p'     => '3840x2160',
     '4K'        => '3840x2160',
+    '4K UHD'    => '3840x2160',
+    '4K UHD-1'  => '3840x2160',
+    'UHD 4K'    => '3840x2160',
+    'UHDTV-1'   => '3840x2160',
+    'WQUXGA'    => '3840x2400',
 
-    'DCI 4K'    => '4096x2160',
     'Cinema 4K' => '4096x2160',
+    'DCI 4K'    => '4096x2160',
+    'HXGA'      => '4096x3072',
 
-    'UHD+'      => '5120x2880',
+    'UW5K'      => '5120x2160',
     '5K'        => '5120x2880',
+    'UHD+'      => '5120x2880',
+    'WHXGA'     => '5120x3200',
+    'HSXGA'     => '5120x4096',
 
-    'UHD 8K'    => '7680x4320',
-    '8K UHD'    => '7680x4320',
-    'UHDTV-2'   => '7680x4320',
+    'WHSXGA'    => '6400x4096',
+    'HUXGA'     => '6400x4800',
+
+    '4320p'     => '7680x4320',
     '8K'        => '7680x4320',
+    '8K UHD'    => '7680x4320',
+    '8K UHD-2'  => '7680x4320',
+    'UHD 8K'    => '7680x4320',
+    'UHDTV-2'   => '7680x4320',
+    'WHUXGA'    => '7680x4800',
 
-    'UHD 16K'   => '15360x8640',
-    '16K UHD'   => '15360x8640',
+    'UW10K'     => '10240x4320',
+
     '16K'       => '15360x8640',
+    '16K UHD'   => '15360x8640',
+    'UHD 16K'   => '15360x8640',
 );
 
 my @res_names = sort keys %res_sizes;
