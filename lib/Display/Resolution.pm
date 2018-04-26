@@ -289,3 +289,9 @@ sub list_display_resolution_names {
 
 1;
 # ABSTRACT:
+
+=head1 SEE ALSO
+
+L<https://en.wikipedia.org/wiki/Display_resolution>
+
+L<https://en.wikipedia.org/wiki/List_of_common_resolutions>
