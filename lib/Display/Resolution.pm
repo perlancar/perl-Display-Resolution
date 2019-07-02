@@ -28,10 +28,22 @@ our %res_sizes = (
     'CGA1'      => '320x200',
     'QVGA'      => '320x240', # one quarter VGA
 
+    'NTSC VCD'  => '352x240', # video cd
+    'PAL VCD'   => '352x288',
+    'SECAM VCD' => '352x288',
+
     'WQVGA'     => '400x240', # XXX there are actually variants of WQVGA, apple's ipod nano 7G's WQVGA is 432x240, etc.
     'qSVGA'     => '400x300', # quarter SVGA
 
     'HVGA'      => '480x320', # half VGA. XXX there are actually variants of HVGA, e.g. 480x270, 640x240, ...
+    'NTSC SVCD' => '480x480', # super video cd
+    'PAL SVCD'  => '480x576',
+    'SECAM SVCD'=> '480x576',
+
+    'KVCDx3 480p'  => '528x480',
+    'KVCDx3 576p'  => '528x576',
+    'KVCDx3A 480p' => '544x480',
+    'KVCDx3A 576p' => '544x576',
 
     'CGA2'      => '640x200',
     'EGA'       => '640x350',
@@ -97,7 +109,7 @@ our %res_sizes = (
     'QUXGA'     => '3200x2400',
 
     'UW4K'      => '3840x1600',
-    '2160p'     => '3840x2160',
+    '2160p'     => '3840x2160', # blu-ray
     '4K'        => '3840x2160',
     '4K UHD'    => '3840x2160',
     '4K UHD-1'  => '3840x2160',
